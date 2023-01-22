@@ -1,10 +1,7 @@
-import openai_secret_manager
 import requests
 
 # Authenticate with the OpenAI API
-secrets = openai_secret_manager.get_secrets("openai")
-api_key = secrets["api_key"]
-headers = {"Authorization": f"Bearer {api_key}"}
+headers = {"Authorization": f"Bearer {your_api_key}"}
 
 # Define the folder containing the files to be analyzed
 folder_path = "path/to/folder"
