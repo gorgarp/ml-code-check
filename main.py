@@ -20,7 +20,13 @@ for filename in os.listdir(folder_path):
         response_text = response.text
 
         # Extract the code errors from the API response
-        errors = extract_errors_from_response(response_text)
+        def extract_errors_from_response(response_text):
+    response_json = json.loads(response_text)
+    errors = []
+    for message in response_json["messages"]:
+        if message["type"] == "error":
+            errors.append(message["text"])
+    return errors:
 
         # Add the errors to the report
         for error in errors:
