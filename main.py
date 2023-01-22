@@ -16,8 +16,8 @@ report = []
 def extract_errors_from_response(response_text):
     response_json = json.loads(response_text)
     errors = []
-    for message in response_json["responses"]:
-        if message["type"] == "error":
+    for message in response_json["choices"]:
+        if message["text"].startswith("error:"):
             errors.append(message["text"])
     return errors
 
