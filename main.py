@@ -1,4 +1,5 @@
 import requests
+import os
 
 # Authenticate with the OpenAI API
 headers = {"Authorization": f"Bearer {your_api_key}"}
