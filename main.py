@@ -10,8 +10,9 @@ folder_path = "path/to/folder"
 # Iterate through the files in the folder
 for filename in os.listdir(folder_path):
     file_path = os.path.join(folder_path, filename)
-    with open(file_path, "r") as file:
-        file_contents = file.read()
+    if os.path.isfile(file_path):
+        with open(file_path, "r") as file:
+            file_contents = file.read()
 
         # Submit the file contents to the OpenAI API for code analysis
         data = {"prompt": f"find code errors in this file {file_contents}"}
